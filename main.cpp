@@ -7,7 +7,17 @@
 
 using namespace std;
 
-int main() {
-    cout << " hey world" << endl;
+//declared object
+app_info* appInfo = new app_info[sizeof(appInfo)*2];
+
+//declared functions
+
+int main(int argc, char* argv[]) {
+    char categoriesNumber[12];
+    fgets(categoriesNumber, sizeof(categoriesNumber), stdin);
+    cout << categoriesNumber;
+
+
+    
     return 0;
 }
