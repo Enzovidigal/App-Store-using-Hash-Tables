@@ -10,7 +10,6 @@ using namespace std;
 
 //declared object
 app_info* appInfo = new app_info[sizeof(appInfo)*2];
-bst* root;
 
 //declared functions
 
@@ -23,6 +22,7 @@ int main(int argc, char* argv[]) {
     char size[10];
     char units[4];
     char price[10];
+    int index = 0;
 
 
     //reads the first line in the text file and gets the number of categories
@@ -30,6 +30,7 @@ int main(int argc, char* argv[]) {
 
     //declare categories object
     categories* cat_name = new categories[atoi(categoriesNumber)];
+
 
     //initializes category object
     for (int i=0; i<atoi(categoriesNumber);i++){
@@ -64,10 +65,18 @@ int main(int argc, char* argv[]) {
             fgets(price, sizeof(price), stdin);
             appInfo[i].price = atof(price);
 
+
+            for (int j =0; j<atoi(categoriesNumber); j++){
+                if (strcmp(cat_name[atoi(categoriesNumber)].category, categoryName)==0){
+                    index=j;
+                }
+            }
+
             //organizing binary search tree
-            root = insert(root, appInfo[i]);
+            cat_name[index].root = insert(cat_name[index].root , appInfo[i]);
     }
 
-    traverse(root);
+    traverse(cat_name[0].root);
+
     return 0;
 }

@@ -24,9 +24,8 @@ bst* insert(bst* root, app_info appInfo)
 
 void traverse(bst* root)
 {
-    if (root==NULL) {
+    if (root==NULL)
         return;
-    }
 
     traverse(root->left);
     cout << root->record.app_name << endl;
