@@ -28,3 +28,5 @@ struct hash_table_entry{
    struct bst *app_node; // Pointer to node in BST containing the application information
    struct hash_table_entry *next; // Next pointer for chain in separate chaining
 };
+
+bst* insert(bst* root, app_info appInfo);

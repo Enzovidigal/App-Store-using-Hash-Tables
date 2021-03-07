@@ -114,6 +114,30 @@ CSE310_P2/fast:
 	$(MAKE) -f CMakeFiles/CSE310_P2.dir/build.make CMakeFiles/CSE310_P2.dir/build
 .PHONY : CSE310_P2/fast
 
+bst.o: bst.cc.o
+.PHONY : bst.o
+
+# target to build an object file
+bst.cc.o:
+	$(MAKE) -f CMakeFiles/CSE310_P2.dir/build.make CMakeFiles/CSE310_P2.dir/bst.cc.o
+.PHONY : bst.cc.o
+
+bst.i: bst.cc.i
+.PHONY : bst.i
+
+# target to preprocess a source file
+bst.cc.i:
+	$(MAKE) -f CMakeFiles/CSE310_P2.dir/build.make CMakeFiles/CSE310_P2.dir/bst.cc.i
+.PHONY : bst.cc.i
+
+bst.s: bst.cc.s
+.PHONY : bst.s
+
+# target to generate assembly for a file
+bst.cc.s:
+	$(MAKE) -f CMakeFiles/CSE310_P2.dir/build.make CMakeFiles/CSE310_P2.dir/bst.cc.s
+.PHONY : bst.cc.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -147,6 +171,9 @@ help:
 	@echo "... CSE310_P2"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... bst.o"
+	@echo "... bst.i"
+	@echo "... bst.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
