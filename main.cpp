@@ -68,5 +68,6 @@ int main(int argc, char* argv[]) {
             root = insert(root, appInfo[i]);
     }
 
+    traverse(root);
     return 0;
 }

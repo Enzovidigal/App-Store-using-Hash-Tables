@@ -4,8 +4,8 @@ myAppStore: main.o bst.o
 main.o: main.cpp
 	g++ main.cpp -c
 
-bst.o: bst.cc defn.h
-	g++ bst.cc defn.h -c
+bst.o: bst.cc
+	g++ bst.cc -c
 
 clean:
 	rm main.o bst.o

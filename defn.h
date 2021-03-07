@@ -30,3 +30,4 @@ struct hash_table_entry{
 };
 
 bst* insert(bst* root, app_info appInfo);
+void traverse(bst* root);
