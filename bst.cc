@@ -1,21 +1,13 @@
 #include <string.h>
-#include <iostream>
 #include "defn.h"
-
-using namespace std;
 
 bst* insert(bst* root, app_info appInfo)
 {
-
-
-
     if (root==NULL)
     {
-
         root = new bst;
         // Insert the first node, if root is NULL.
         root->record = appInfo;
-
         return root;
     }
 
@@ -26,19 +18,17 @@ bst* insert(bst* root, app_info appInfo)
         // to be inserted is greater than 'root' node data.
 
         // Process left nodes.
-        insert(root->left, appInfo);
+        root->left = insert(root->left, appInfo);
     }
+
     else{
 
         // Insert right node data, if the 'value'
         // to be inserted is greater than 'root' node data.
 
         // Process right nodes.
-        insert(root->right, appInfo);
+        root->right = insert(root->right, appInfo);
     }
-
     return root;
-
-
 }
 

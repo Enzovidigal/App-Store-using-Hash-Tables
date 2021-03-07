@@ -66,21 +66,7 @@ int main(int argc, char* argv[]) {
 
             //organizing binary search tree
             root = insert(root, appInfo[i]);
-
     }
-
-    /*
-
-    for (int i=0; i < atoi(appsNumber) ;i++) {
-        cout << appInfo[i].category << endl;
-        cout << appInfo[i].app_name << endl;
-        cout << appInfo[i].version << endl;
-        cout << appInfo[i].size << endl;
-        cout << appInfo[i].units << endl;
-        cout << appInfo[i].price << endl;
-    }
-     */
-
 
     return 0;
 }
