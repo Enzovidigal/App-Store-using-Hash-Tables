@@ -14,10 +14,10 @@ app_info* appInfo = new app_info[sizeof(appInfo)*255];
 
 int main(int argc, char* argv[]) {
     char categoriesNumber[15]; //number of app categories
-    char categoryName[25]; //name of each category
+    char categoryName[100]; //name of each category
     char appsNumber[15]; //number of apps to add to myAppStore
-    char appName[50]; //name of each app
-    char version[10]; //version of each app
+    char appName[200]; //name of each app
+    char version[20]; //version of each app
     char size[10]; //size of each app
     char units[4]; //MB or GB
     char price[50]; //price of each app
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
         fgets(categoryName, sizeof(categoryName), stdin);
 
         //removes newline
-        //categoryName[strcspn(categoryName, "\n")] = '\0';
+        categoryName[strcspn(categoryName, "\n")] = '\0';
 
         strcpy(cat_name[i].category, categoryName);
         cat_name[i].root=NULL;
@@ -55,6 +55,7 @@ int main(int argc, char* argv[]) {
 
         //gets category name
         fgets(categoryName, sizeof(categoryName), stdin);
+        categoryName[strcspn(categoryName, "\n")] = '\0';
         strcpy(appInfo[i].category,categoryName);
 
         //gets app name
@@ -113,7 +114,7 @@ int main(int argc, char* argv[]) {
             token = strtok(NULL, """");
             token.erase(0,1);
             token.erase( token.end()-2, token.end()-1);
-            //token.erase(token.end()-1,token.end());
+            token.erase(token.end()-1,token.end());
             cells[2] = token;
 
             //finds index of category
@@ -137,11 +138,13 @@ int main(int argc, char* argv[]) {
                 //prints out if there are no apps in category
                 if (cat_name[index].root==NULL){
                     cout << "Category " << cat_name[index].category << " no apps found." << endl;
+                    cout << endl;
                 }
                 //prints apps
                 else{
                     cout << "Category: " << cat_name[index].category << endl;
                     traverse(cat_name[index].root);
+                    cout << endl;
                 }
             }
         }
