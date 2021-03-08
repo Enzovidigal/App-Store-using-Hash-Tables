@@ -25,6 +25,8 @@ int main(int argc, char* argv[]) {
     char queriesNumber[10]; //number of queries to be read
     char query_str[255]; //full query
     int count; //counts if category doesn't exist
+    string tempName; //name of each category without quotes
+
 
 
     //reads the first line in the text file and gets the number of categories
@@ -112,15 +114,19 @@ int main(int argc, char* argv[]) {
 
             //finds name of the category
             token = strtok(NULL, """");
+            cells[2] = token;
+
+
             token.erase(0,1);
             token.erase( token.end()-2, token.end()-1);
             token.erase(token.end()-1,token.end());
-            cells[2] = token;
+            tempName = token;
+
 
             //finds index of category
             count = 0;
             for (int j =0 ; j < atoi(categoriesNumber); j++){
-                if (cat_name[j].category == cells[2]){
+                if (cat_name[j].category == tempName){
                     index=j;
                 }
                 else{
@@ -137,12 +143,12 @@ int main(int argc, char* argv[]) {
             else{
                 //prints out if there are no apps in category
                 if (cat_name[index].root==NULL){
-                    cout << "Category " << cat_name[index].category << " no apps found." << endl;
+                    cout << "Category " << cells[2] << " no apps found." << endl;
                     cout << endl;
                 }
                 //prints apps
                 else{
-                    cout << "Category: " << cat_name[index].category << endl;
+                    cout << "Category: " << cells[2];
                     traverse(cat_name[index].root);
                     cout << endl;
                 }
@@ -156,7 +162,8 @@ int main(int argc, char* argv[]) {
 
             //checks if the second command is "max"
             if (cells[1]=="max"){
-                cout << "DONE";
+                cout << "DONE" << endl;
+                cout << endl;
             }
         }
     }
