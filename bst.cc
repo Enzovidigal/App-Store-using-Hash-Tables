@@ -4,8 +4,10 @@
 
 using namespace std;
 
+// inserts category object in the bst
 bst* insert(bst* root, app_info appInfo)
 {
+    //checks if the root is NULL
     if (root==NULL)
     {
         root = new bst;
@@ -13,6 +15,7 @@ bst* insert(bst* root, app_info appInfo)
         return root;
     }
 
+    //checks the alphabetical order of the app names and inserts into the bst
     if (strcmp(appInfo.app_name, root->record.app_name) < 0)
         root->left = insert(root->left, appInfo);
 
@@ -22,13 +25,17 @@ bst* insert(bst* root, app_info appInfo)
     return root;
 }
 
+//prints out apps trough in order traversal
 void traverse(bst* root)
 {
-    if (root==NULL)
+    //checks if root is NULL
+    if (root==NULL) {
         return;
+    }
 
+    //in order traversal
     traverse(root->left);
-    cout << root->record.app_name << endl;
+    cout << "\t" << root->record.app_name;
     traverse(root->right);
 }
 

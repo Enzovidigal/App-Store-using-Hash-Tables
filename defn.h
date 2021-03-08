@@ -1,7 +1,7 @@
 #define	CAT_NAME_LEN	25
 #define	APP_NAME_LEN	50
-#define	VERSION_LEN	10
-#define	UNIT_SIZE	3
+#define	VERSION_LEN 10
+#define	UNIT_SIZE   4
 
 struct app_info{
 	char category[ CAT_NAME_LEN ]; // Name of category
