@@ -190,10 +190,26 @@ int main(int argc, char* argv[]) {
                 //builds max heap
                 price_heap = build_Max_Heap(price_heap, node_counter(cat_name[index].root));
 
-                //prints nodes with max price
-                cout << "Category: " << cells[4] << endl;
-                traversePrintMax(cat_name[index].root, price_heap[0]);
-                cout << endl;
+                //prints out if category does not exist
+                if (count==atoi(categoriesNumber)){
+                    cout << "Category " << cells[4] << " not found." << endl;
+                    cout << endl;
+                }
+
+                else{
+                    //prints out if there are no apps in category
+                    if (cat_name[index].root==NULL){
+                        cout << "Category " << cells[4] << " no apps found." << endl;
+                        cout << endl;
+                    }
+                    //prints apps
+                    else{
+                        //prints nodes with max price
+                        cout << "Category: " << cells[4] << endl;
+                        traversePrintMax(cat_name[index].root, price_heap[0]);
+                        cout << endl;
+                    }
+                }
             }
         }
     }
