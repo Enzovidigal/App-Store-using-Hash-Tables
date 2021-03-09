@@ -31,11 +31,13 @@ struct hash_table_entry{
 
 //defined functions on bst.cc
 bst* insert(bst* root, app_info appInfo);
-void traverse(bst* root);
+void traversePrintApps(bst* root);
+void traversePrintMax(bst* root, float rootMaxHeap);
+float* traverse_heap(bst* root, float* heap_array, int i);
+
 
 
 //defined functions on heap.cc
 int node_counter(bst* root);
-float* traverse_heap(bst* root, float* heap_array, int i);
 float* build_Max_Heap(float* heapArray, int n);
 void heapify(float* heapArray, int n, int i);

@@ -26,7 +26,7 @@ bst* insert(bst* root, app_info appInfo)
 }
 
 //prints out apps trough in order traversal
-void traverse(bst* root)
+void traversePrintApps(bst* root)
 {
     //checks if root is NULL
     if (root==NULL) {
@@ -34,9 +34,38 @@ void traverse(bst* root)
     }
 
     //in order traversal
-    traverse(root->left);
+    traversePrintApps(root->left);
     cout << "\t" << root->record.app_name;
-    traverse(root->right);
+    traversePrintApps(root->right);
 }
 
+float* traverse_heap(bst* root, float* heap_array, int i)
+{
+    //checks if root is NULL
+    if (root==NULL) {
+        return heap_array;
+    }
+
+    //in order traversal
+    traverse_heap(root->left, heap_array, i--);
+    heap_array[i] = root->record.price;
+    traverse_heap(root->right, heap_array, i--);
+
+    return heap_array;
+}
+
+void traversePrintMax(bst* root, float rootMaxHeap)
+{
+    //checks if root is NULL
+    if (root==NULL) {
+        return;
+    }
+
+    //in order traversal
+    traversePrintMax(root->left, rootMaxHeap);
+    if (root->record.price==rootMaxHeap){
+        cout << "\t" << root->record.app_name;
+    }
+    traversePrintMax(root->right, rootMaxHeap);
+}
 

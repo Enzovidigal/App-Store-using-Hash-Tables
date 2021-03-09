@@ -140,7 +140,7 @@ int main(int argc, char* argv[]) {
                 //prints apps
                 else{
                     cout << "Category: " << cells[2] << endl;
-                    traverse(cat_name[index].root);
+                    traversePrintApps(cat_name[index].root);
                     cout << endl;
                 }
             }
@@ -181,11 +181,18 @@ int main(int argc, char* argv[]) {
                     }
                 }
 
+                //builds heap array
                 float* price_heap = new float[node_counter(cat_name[index].root)];
-                int count_heap = node_counter(cat_name[index].root);
-                price_heap = traverse_heap(cat_name[index].root, price_heap, count_heap);
+
+                //initializes heap array of prices
+                price_heap = traverse_heap(cat_name[index].root, price_heap, node_counter(cat_name[index].root));
+
+                //builds max heap
                 price_heap = build_Max_Heap(price_heap, node_counter(cat_name[index].root));
-                cout << price_heap[0] << endl;
+
+                //prints nodes with max price
+                cout << "Category: " << cells[4] << endl;
+                traversePrintMax(cat_name[index].root, price_heap[0]);
                 cout << endl;
             }
         }

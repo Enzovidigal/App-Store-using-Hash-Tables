@@ -16,21 +16,6 @@ int node_counter(bst* root){
     }
 }
 
-float* traverse_heap(bst* root, float* heap_array, int i)
-{
-    //checks if root is NULL
-    if (root==NULL) {
-        return heap_array;
-    }
-
-    //in order traversal
-    traverse_heap(root->left, heap_array, i--);
-    heap_array[i] = root->record.price;
-    traverse_heap(root->right, heap_array, i--);
-
-    return heap_array;
-}
-
 float* build_Max_Heap(float* heapArray, int n)
 {
     // Index of last non-leaf node
