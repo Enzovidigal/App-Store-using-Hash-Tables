@@ -7,7 +7,6 @@
 using namespace std;
 
 #define CELLS_LEN 30 // size of double pointer
-#define MAX_LEN 255 // size of single pointer
 
 //declared object
 app_info* appInfo = new app_info[sizeof(appInfo)*255];
@@ -27,15 +26,11 @@ int main(int argc, char* argv[]) {
     int count; //counts if category doesn't exist
     string tempName; //name of each category without quotes
 
-
-
     //reads the first line in the text file and gets the number of categories
     fgets(categoriesNumber, sizeof(categoriesNumber), stdin);
 
     //declare categories object
     categories* cat_name = new categories[sizeof(cat_name)*255];
-
-
 
     //initializes category object
     for (int i=0; i<atoi(categoriesNumber);i++){
@@ -49,7 +44,6 @@ int main(int argc, char* argv[]) {
     }
     //gets number of apps to be stored
     fgets(appsNumber, sizeof(appsNumber), stdin);
-
 
     //loops until all apps are in myAppStore
     for (int i=0; i < atoi(appsNumber);i++){
@@ -80,14 +74,12 @@ int main(int argc, char* argv[]) {
         fgets(price, sizeof(price), stdin);
         appInfo[i].price = atof(price);
 
-
         //finds the index in which category name is stored
         for (int j =0; j<atoi(categoriesNumber); j++){
             if (strcmp(cat_name[j].category, categoryName)==0){
                 index=j;
             }
         }
-
         //inserts in binary search tree
         cat_name[index].root = insert(cat_name[index].root , appInfo[i]);
     }
@@ -115,13 +107,12 @@ int main(int argc, char* argv[]) {
             //finds name of the category
             token = strtok(NULL, """");
             cells[2] = token;
-
+            cells[2].erase(cells[2].end()-1, cells[2].end());
 
             token.erase(0,1);
             token.erase( token.end()-2, token.end()-1);
             token.erase(token.end()-1,token.end());
             tempName = token;
-
 
             //finds index of category
             count = 0;
@@ -148,7 +139,7 @@ int main(int argc, char* argv[]) {
                 }
                 //prints apps
                 else{
-                    cout << "Category: " << cells[2];
+                    cout << "Category: " << cells[2] << endl;
                     traverse(cat_name[index].root);
                     cout << endl;
                 }
@@ -162,6 +153,42 @@ int main(int argc, char* argv[]) {
 
             //checks if the second command is "max"
             if (cells[1]=="max"){
+
+                token = strtok(NULL, " ");
+                cells[2] = token;
+
+                token = strtok(NULL, " ");
+                cells[3] = token;
+
+                //finds name of the category
+                token = strtok(NULL, """");
+                cells[4] = token;
+                cells[4].erase(cells[4].end()-1, cells[4].end());
+
+                token.erase(0,1);
+                token.erase( token.end()-2, token.end()-1);
+                token.erase(token.end()-1,token.end());
+                tempName = token;
+
+                //finds index of category
+                count = 0;
+                for (int j =0 ; j < atoi(categoriesNumber); j++){
+                    if (cat_name[j].category == tempName){
+                        index=j;
+                    }
+                    else{
+                        count++;
+                    }
+                }
+
+                float* price_heap = new float[node_counter(cat_name[index].root)];
+
+                int count_heap = node_counter(cat_name[index].root);
+                price_heap = traverse_heap(cat_name[index].root, price_heap, count_heap);
+
+
+                cout << price_heap[2] << endl;
+                cout <<  node_counter(cat_name[index].root) << endl;
                 cout << "DONE" << endl;
                 cout << endl;
             }

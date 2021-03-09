@@ -1,1 +1,1 @@
-/usr/bin/c++   -g    CMakeFiles/CSE310_P2.dir/main.cpp.o CMakeFiles/CSE310_P2.dir/bst.cc.o  -o CSE310_P2 -rdynamic 
+/usr/bin/c++   -g    CMakeFiles/CSE310_P2.dir/main.cpp.o CMakeFiles/CSE310_P2.dir/bst.cc.o CMakeFiles/CSE310_P2.dir/heap.cc.o  -o CSE310_P2 -rdynamic 

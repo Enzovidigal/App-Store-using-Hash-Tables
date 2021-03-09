@@ -29,5 +29,11 @@ struct hash_table_entry{
    struct hash_table_entry *next; // Next pointer for chain in separate chaining
 };
 
+//defined functions on bst.cc
 bst* insert(bst* root, app_info appInfo);
 void traverse(bst* root);
+
+
+//defined functions on heap.cc
+int node_counter(bst* root);
+float* traverse_heap(bst* root, float* heap_array, int i);

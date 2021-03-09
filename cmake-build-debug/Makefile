@@ -138,6 +138,30 @@ bst.cc.s:
 	$(MAKE) -f CMakeFiles/CSE310_P2.dir/build.make CMakeFiles/CSE310_P2.dir/bst.cc.s
 .PHONY : bst.cc.s
 
+heap.o: heap.cc.o
+.PHONY : heap.o
+
+# target to build an object file
+heap.cc.o:
+	$(MAKE) -f CMakeFiles/CSE310_P2.dir/build.make CMakeFiles/CSE310_P2.dir/heap.cc.o
+.PHONY : heap.cc.o
+
+heap.i: heap.cc.i
+.PHONY : heap.i
+
+# target to preprocess a source file
+heap.cc.i:
+	$(MAKE) -f CMakeFiles/CSE310_P2.dir/build.make CMakeFiles/CSE310_P2.dir/heap.cc.i
+.PHONY : heap.cc.i
+
+heap.s: heap.cc.s
+.PHONY : heap.s
+
+# target to generate assembly for a file
+heap.cc.s:
+	$(MAKE) -f CMakeFiles/CSE310_P2.dir/build.make CMakeFiles/CSE310_P2.dir/heap.cc.s
+.PHONY : heap.cc.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -174,6 +198,9 @@ help:
 	@echo "... bst.o"
 	@echo "... bst.i"
 	@echo "... bst.s"
+	@echo "... heap.o"
+	@echo "... heap.i"
+	@echo "... heap.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

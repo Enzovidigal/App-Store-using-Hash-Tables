@@ -98,16 +98,41 @@ CMakeFiles/CSE310_P2.dir/bst.cc.o.provides: CMakeFiles/CSE310_P2.dir/bst.cc.o.re
 
 CMakeFiles/CSE310_P2.dir/bst.cc.o.provides.build: CMakeFiles/CSE310_P2.dir/bst.cc.o
 
+CMakeFiles/CSE310_P2.dir/heap.cc.o: CMakeFiles/CSE310_P2.dir/flags.make
+CMakeFiles/CSE310_P2.dir/heap.cc.o: ../heap.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/asu.edu/users/e/v/i/evidigal/CSE310/Project-2/cmake-build-debug/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CSE310_P2.dir/heap.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CSE310_P2.dir/heap.cc.o -c /afs/asu.edu/users/e/v/i/evidigal/CSE310/Project-2/heap.cc
+
+CMakeFiles/CSE310_P2.dir/heap.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CSE310_P2.dir/heap.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/asu.edu/users/e/v/i/evidigal/CSE310/Project-2/heap.cc > CMakeFiles/CSE310_P2.dir/heap.cc.i
+
+CMakeFiles/CSE310_P2.dir/heap.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CSE310_P2.dir/heap.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/asu.edu/users/e/v/i/evidigal/CSE310/Project-2/heap.cc -o CMakeFiles/CSE310_P2.dir/heap.cc.s
+
+CMakeFiles/CSE310_P2.dir/heap.cc.o.requires:
+.PHONY : CMakeFiles/CSE310_P2.dir/heap.cc.o.requires
+
+CMakeFiles/CSE310_P2.dir/heap.cc.o.provides: CMakeFiles/CSE310_P2.dir/heap.cc.o.requires
+	$(MAKE) -f CMakeFiles/CSE310_P2.dir/build.make CMakeFiles/CSE310_P2.dir/heap.cc.o.provides.build
+.PHONY : CMakeFiles/CSE310_P2.dir/heap.cc.o.provides
+
+CMakeFiles/CSE310_P2.dir/heap.cc.o.provides.build: CMakeFiles/CSE310_P2.dir/heap.cc.o
+
 # Object files for target CSE310_P2
 CSE310_P2_OBJECTS = \
 "CMakeFiles/CSE310_P2.dir/main.cpp.o" \
-"CMakeFiles/CSE310_P2.dir/bst.cc.o"
+"CMakeFiles/CSE310_P2.dir/bst.cc.o" \
+"CMakeFiles/CSE310_P2.dir/heap.cc.o"
 
 # External object files for target CSE310_P2
 CSE310_P2_EXTERNAL_OBJECTS =
 
 CSE310_P2: CMakeFiles/CSE310_P2.dir/main.cpp.o
 CSE310_P2: CMakeFiles/CSE310_P2.dir/bst.cc.o
+CSE310_P2: CMakeFiles/CSE310_P2.dir/heap.cc.o
 CSE310_P2: CMakeFiles/CSE310_P2.dir/build.make
 CSE310_P2: CMakeFiles/CSE310_P2.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable CSE310_P2"
@@ -119,6 +144,7 @@ CMakeFiles/CSE310_P2.dir/build: CSE310_P2
 
 CMakeFiles/CSE310_P2.dir/requires: CMakeFiles/CSE310_P2.dir/main.cpp.o.requires
 CMakeFiles/CSE310_P2.dir/requires: CMakeFiles/CSE310_P2.dir/bst.cc.o.requires
+CMakeFiles/CSE310_P2.dir/requires: CMakeFiles/CSE310_P2.dir/heap.cc.o.requires
 .PHONY : CMakeFiles/CSE310_P2.dir/requires
 
 CMakeFiles/CSE310_P2.dir/clean:

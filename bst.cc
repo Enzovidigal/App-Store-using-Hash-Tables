@@ -39,3 +39,4 @@ void traverse(bst* root)
     traverse(root->right);
 }
 
+
