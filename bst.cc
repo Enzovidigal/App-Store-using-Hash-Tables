@@ -73,3 +73,12 @@ void traversePrintMax(bst* root, float rootMaxHeap)
     traversePrintMax(root->right, rootMaxHeap);
 }
 
+//deletes memory allocated to bst
+void free_bst(bst* root){
+    if (root==NULL){
+        return;
+    }
+    free_bst(root->left);
+    delete(root);
+    free_bst(root->right);
+}

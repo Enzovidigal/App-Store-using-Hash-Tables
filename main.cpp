@@ -218,11 +218,22 @@ int main(int argc, char* argv[]) {
                         cout << endl;
                     }
                 }
-                free(price_heap);
+                //deletes heap array
+                delete(price_heap);
             }
         }
+        //deletes array of tokens
+        delete[] cells;
     }
-    free(appInfo);
-    free(cat_name);
+
+    //deletes memory allocated to bst
+    for (int i=0; i<atoi(categoriesNumber);i++){
+        free_bst(cat_name[i].root);
+    }
+
+    //deletes memory allocated to objects
+    delete(appInfo);
+    delete(cat_name);
+
     return 0;
 }
