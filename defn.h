@@ -37,3 +37,5 @@ void traverse(bst* root);
 //defined functions on heap.cc
 int node_counter(bst* root);
 float* traverse_heap(bst* root, float* heap_array, int i);
+float* build_Max_Heap(float* heapArray, int n);
+void heapify(float* heapArray, int n, int i);

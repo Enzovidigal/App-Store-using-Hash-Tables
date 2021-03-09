@@ -182,14 +182,10 @@ int main(int argc, char* argv[]) {
                 }
 
                 float* price_heap = new float[node_counter(cat_name[index].root)];
-
                 int count_heap = node_counter(cat_name[index].root);
                 price_heap = traverse_heap(cat_name[index].root, price_heap, count_heap);
-
-
-                cout << price_heap[2] << endl;
-                cout <<  node_counter(cat_name[index].root) << endl;
-                cout << "DONE" << endl;
+                price_heap = build_Max_Heap(price_heap, node_counter(cat_name[index].root));
+                cout << price_heap[0] << endl;
                 cout << endl;
             }
         }
