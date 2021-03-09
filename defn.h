@@ -29,15 +29,17 @@ struct hash_table_entry{
    struct hash_table_entry *next; // Next pointer for chain in separate chaining
 };
 
+//global variable used on recursive algorithms
+extern int global_index;
+
 //defined functions on bst.cc
 bst* insert(bst* root, app_info appInfo);
 void traversePrintApps(bst* root);
 void traversePrintMax(bst* root, float rootMaxHeap);
-float* traverse_heap(bst* root, float* heap_array, int i);
-
-
+float* traverse_heap(bst* root, float* heap_array);
 
 //defined functions on heap.cc
 int node_counter(bst* root);
 float* build_Max_Heap(float* heapArray, int n);
 void heapify(float* heapArray, int n, int i);
+

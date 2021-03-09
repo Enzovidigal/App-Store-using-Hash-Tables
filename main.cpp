@@ -7,6 +7,7 @@
 using namespace std;
 
 #define CELLS_LEN 30 // size of double pointer
+int global_index = 0;
 
 //declared object
 app_info* appInfo = new app_info[sizeof(appInfo)*255];
@@ -73,6 +74,8 @@ int main(int argc, char* argv[]) {
         //gets price
         fgets(price, sizeof(price), stdin);
         appInfo[i].price = atof(price);
+
+
 
         //finds the index in which category name is stored
         for (int j =0; j<atoi(categoriesNumber); j++){
@@ -181,11 +184,16 @@ int main(int argc, char* argv[]) {
                     }
                 }
 
+
                 //builds heap array
                 float* price_heap = new float[node_counter(cat_name[index].root)];
 
+
                 //initializes heap array of prices
-                price_heap = traverse_heap(cat_name[index].root, price_heap, node_counter(cat_name[index].root));
+                price_heap = traverse_heap(cat_name[index].root, price_heap);
+
+                //resets global index
+                global_index =0;
 
                 //builds max heap
                 price_heap = build_Max_Heap(price_heap, node_counter(cat_name[index].root));
@@ -210,8 +218,11 @@ int main(int argc, char* argv[]) {
                         cout << endl;
                     }
                 }
+                free(price_heap);
             }
         }
     }
+    free(appInfo);
+    free(cat_name);
     return 0;
 }

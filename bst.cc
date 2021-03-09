@@ -22,6 +22,7 @@ bst* insert(bst* root, app_info appInfo)
     else
         root->right = insert(root->right, appInfo);
 
+    //returns tree
     return root;
 }
 
@@ -39,21 +40,24 @@ void traversePrintApps(bst* root)
     traversePrintApps(root->right);
 }
 
-float* traverse_heap(bst* root, float* heap_array, int i)
+//converts bst to heap using in order traversal
+float* traverse_heap(bst* root, float* heap_array)
 {
     //checks if root is NULL
     if (root==NULL) {
-        return heap_array;
+        return 0;
     }
 
     //in order traversal
-    traverse_heap(root->left, heap_array, i--);
-    heap_array[i] = root->record.price;
-    traverse_heap(root->right, heap_array, i--);
+    traverse_heap(root->left, heap_array);
+    heap_array[global_index++] = root->record.price;
+    traverse_heap(root->right, heap_array);
 
+    //returns heap array
     return heap_array;
 }
 
+//prints out apps with max price trough in order traversal
 void traversePrintMax(bst* root, float rootMaxHeap)
 {
     //checks if root is NULL

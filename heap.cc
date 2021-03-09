@@ -4,28 +4,35 @@
 
 using namespace std;
 
+//counts number of nodes in the bst
 int node_counter(bst* root){
     if (root==NULL)
     {
         return 0;
     }
+
     else {
+        //counts number of nodes in the left side of the tree
         int count_left = node_counter(root->left);
+
+        //counts number of nodes in the right side of the tree
         int count_right = node_counter(root->right);
+
+        //return sum
         return count_left + count_right + 1;
     }
 }
 
-float* build_Max_Heap(float* heapArray, int n)
+float* build_Max_Heap(float* heapArray, int length)
 {
     // Index of last non-leaf node
-    int startIdx = (n / 2) - 1;
+    int startIdx = (length / 2) - 1;
 
     // Perform reverse level order traversal
     // from last non-leaf node and heapify
     // each node
     for (int i = startIdx; i >= 0; i--) {
-        heapify(heapArray, n, i);
+        heapify(heapArray, length, i);
     }
 
     return heapArray;
