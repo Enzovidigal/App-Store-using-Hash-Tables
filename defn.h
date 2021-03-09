@@ -42,5 +42,5 @@ void free_bst(bst* root);
 //defined functions on heap.cc
 int node_counter(bst* root);
 float* build_Max_Heap(float* heapArray, int n);
-void heapify(float* heapArray, int n, int i);
+void max_heapify(float* heapArray, int i, int n);
 

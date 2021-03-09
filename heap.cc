@@ -23,41 +23,42 @@ int node_counter(bst* root){
     }
 }
 
-float* build_Max_Heap(float* heapArray, int length)
+//builds a max heap from an array
+float* build_Max_Heap(float* heapArray, int n)
 {
-    // Index of last non-leaf node
-    int startIdx = (length / 2) - 1;
+    //gets parent of leaf node
+    int indexNode = (n/2) - 1;
 
-    // Perform reverse level order traversal
-    // from last non-leaf node and heapify
-    // each node
-    for (int i = startIdx; i >= 0; i--) {
-        heapify(heapArray, length, i);
+    //loops from indexNode to 0
+    for (int i = indexNode; i >= 0; i--) {
+        //calls max-heapify function
+        max_heapify(heapArray, i, n);
     }
 
+    //returns max heap
     return heapArray;
 }
 
-void heapify(float* heapArray, int n, int i)
+void max_heapify(float* heapArray, int i, int n)
 {
-    int largest = i; // Initialize largest as root
-    int l = 2 * i + 1; // left = 2*i + 1
-    int r = 2 * i + 2; // right = 2*i + 2
+    //initializes positions of the heap
+    int largest = i;
+    int left = 2*i + 1;
+    int right = 2*i + 2;
 
-    // If left child is larger than root
-    if (l < n && heapArray[l] > heapArray[largest])
-        largest = l;
+    if (left<n && heapArray[left]>heapArray[largest])
+        largest = left;
 
-    // If right child is larger than largest so far
-    if (r < n && heapArray[r] > heapArray[largest])
-        largest = r;
+    if (right<n && heapArray[right]>heapArray[largest])
+        largest = right;
 
-    // If largest is not root
+    //checks if largest at the root
     if (largest != i) {
+        //swaps largest node with root
         swap(heapArray[i], heapArray[largest]);
 
-        // Recursively heapify the affected sub-tree
-        heapify(heapArray, n, largest);
+
+        max_heapify(heapArray, n, largest);
     }
 }
 

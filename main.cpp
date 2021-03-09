@@ -75,8 +75,6 @@ int main(int argc, char* argv[]) {
         fgets(price, sizeof(price), stdin);
         appInfo[i].price = atof(price);
 
-
-
         //finds the index in which category name is stored
         for (int j =0; j<atoi(categoriesNumber); j++){
             if (strcmp(cat_name[j].category, categoryName)==0){
