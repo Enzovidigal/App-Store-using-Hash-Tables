@@ -28,8 +28,8 @@ Game of Life Classic Edition
 MB
 0.99
 3
-print-apps category "Social Networking"
-print-apps category "Games"
-find max price apps "Games"
+find max price apps "Social Networking"
+find price free "Games"
+find price free "Books"
 no report
 

@@ -219,6 +219,53 @@ int main(int argc, char* argv[]) {
                 //deletes heap array
                 delete(price_heap);
             }
+
+            else if (cells[1]=="price"){
+                token = strtok(NULL, " ");
+                cells[2] = token;
+
+                //finds name of the category
+                token = strtok(NULL, """");
+                cells[3] = token;
+                cells[3].erase(cells[3].end()-1, cells[3].end());
+
+                token.erase(0,1);
+                token.erase( token.end()-2, token.end()-1);
+                token.erase(token.end()-1,token.end());
+                tempName = token;
+
+                //finds index of category
+                count = 0;
+                for (int j =0 ; j < atoi(categoriesNumber); j++){
+                    if (cat_name[j].category == tempName){
+                        index=j;
+                    }
+                    else{
+                        count++;
+                    }
+                }
+
+                //prints out if category does not exist
+                if (count==atoi(categoriesNumber)){
+                    cout << "Category " << cells[3] << " not found." << endl;
+                    cout << endl;
+                }
+
+                else{
+                    //prints out if there are no apps in category
+                    if (cat_name[index].root==NULL){
+                        cout << "Category " << cells[3] << " no apps found." << endl;
+                        cout << endl;
+                    }
+                        //prints apps
+                    else{
+                        //prints nodes with max price
+                        cout << "Free apps in category: " << cells[3] << endl;
+                        traversePriceFree(cat_name[index].root);
+                        cout << endl;
+                    }
+                }
+            }
         }
         //deletes array of tokens
         delete[] cells;

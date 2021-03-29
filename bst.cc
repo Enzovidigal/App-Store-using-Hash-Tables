@@ -73,6 +73,22 @@ void traversePrintMax(bst* root, float rootMaxHeap)
     traversePrintMax(root->right, rootMaxHeap);
 }
 
+//prints out apps with max price trough in order traversal
+void traversePriceFree(bst* root)
+{
+    //checks if root is NULL
+    if (root==NULL) {
+        return;
+    }
+
+    //in order traversal
+    traversePriceFree(root->left);
+    if (root->record.price==0){
+        cout << "\t" << root->record.app_name;
+    }
+    traversePriceFree(root->right);
+}
+
 //deletes memory allocated to bst
 void free_bst(bst* root){
     if (root==NULL){

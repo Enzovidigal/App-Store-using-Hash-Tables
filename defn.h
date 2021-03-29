@@ -37,6 +37,7 @@ bst* insert(bst* root, app_info appInfo);
 void traversePrintApps(bst* root);
 void traversePrintMax(bst* root, float rootMaxHeap);
 float* traverse_heap(bst* root, float* heap_array);
+void traversePriceFree(bst* root);
 void free_bst(bst* root);
 
 //defined functions on heap.cc

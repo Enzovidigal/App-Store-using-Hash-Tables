@@ -8,6 +8,7 @@
 #include	<stdio.h>
 #include	<stdlib.h>
 #include	<math.h>
+#include "defn.h"
 
 bool TestForPrime( int val )
 {
