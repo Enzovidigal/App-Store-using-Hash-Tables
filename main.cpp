@@ -43,8 +43,11 @@ int main(int argc, char* argv[]) {
         strcpy(cat_name[i].category, categoryName);
         cat_name[i].root=NULL;
     }
+
     //gets number of apps to be stored
     fgets(appsNumber, sizeof(appsNumber), stdin);
+
+    hash_table_entry** hashTable = hashArray(atoi(appsNumber));
 
     //loops until all apps are in myAppStore
     for (int i=0; i < atoi(appsNumber);i++){
@@ -57,6 +60,7 @@ int main(int argc, char* argv[]) {
 
         //gets app name
         fgets(appName, sizeof(appName), stdin);
+        appName[strcspn(appName, "\n")] = '\0';
         strcpy(appInfo[i].app_name,appName);
 
         //gets version
@@ -81,9 +85,13 @@ int main(int argc, char* argv[]) {
                 index=j;
             }
         }
+
         //inserts in binary search tree
         cat_name[index].root = insert(cat_name[index].root , appInfo[i]);
+        insertHT(hashTable, cat_name[index].root, appName, atoi(appsNumber));
     }
+
+
 
     // gets number of queries to be read
     fgets(queriesNumber, sizeof(queriesNumber), stdin);
@@ -279,6 +287,8 @@ int main(int argc, char* argv[]) {
     //deletes memory allocated to objects
     delete(appInfo);
     delete(cat_name);
+    freeHash(hashTable, atoi(appsNumber));
+    delete(hashTable);
 
     return 0;
 }

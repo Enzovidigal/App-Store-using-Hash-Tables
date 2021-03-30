@@ -45,3 +45,9 @@ int node_counter(bst* root);
 float* build_Max_Heap(float* heapArray, int n);
 void max_heapify(float* heapArray, int i, int n);
 
+
+//defined functions on prime.cc
+bool testForPrime(int val);
+void insertHT(hash_table_entry **t, bst* root, char* appName, int m);
+hash_table_entry** hashArray(int m);
+void freeHash(hash_table_entry** t, int m);
